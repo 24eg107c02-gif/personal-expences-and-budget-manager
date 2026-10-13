@@ -10,12 +10,12 @@ In Render, create a Web Service from this repository and configure:
 
 | Setting | Value |
 | --- | --- |
-| Root Directory | `backend` |
+| Root Directory | Leave blank (repository root) |
 | Runtime | `Docker` |
-| Dockerfile Path | `Dockerfile` |
-| Docker Context Directory | `.` |
+| Dockerfile Path | `backend/Dockerfile` |
+| Docker Context Directory | `backend` |
 
-The Dockerfile path is a file path relative to the selected Root Directory. Do not set it to `backend` (that is a directory), or to `backend/Dockerfile` while the Root Directory is already `backend`.
+The Dockerfile Path must point to the Dockerfile **file**, not the `backend` directory. In the current Render service, replace the Dockerfile Path value `backend` with `backend/Dockerfile`. Keep the Root Directory blank and set the Docker Context Directory to `backend`, so the Dockerfile's `COPY pom.xml` and `COPY src ./src` instructions use the backend module as their build context.
 
 Set these environment variables on the backend service:
 
