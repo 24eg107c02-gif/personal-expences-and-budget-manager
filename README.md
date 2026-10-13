@@ -13,9 +13,9 @@ In Render, create a Web Service from this repository and configure:
 | Root Directory | Leave blank (repository root) |
 | Runtime | `Docker` |
 | Dockerfile Path | `backend/Dockerfile` |
-| Docker Context Directory | `backend` |
+| Docker Context Directory | `.` (repository root) |
 
-The Dockerfile Path must point to the Dockerfile **file**, not the `backend` directory. In the current Render service, replace the Dockerfile Path value `backend` with `backend/Dockerfile`. Keep the Root Directory blank and set the Docker Context Directory to `backend`, so the Dockerfile's `COPY pom.xml` and `COPY src ./src` instructions use the backend module as their build context.
+The Dockerfile Path must point to the Dockerfile **file**, not the `backend` directory. In the current Render service, replace the Dockerfile Path value `backend` with `backend/Dockerfile`. Keep the Root Directory blank and set the Docker Context Directory to the repository root (`.`). The Dockerfile copies `backend/pom.xml` and `backend/src` from this root context.
 
 Set these environment variables on the backend service:
 
