@@ -1,0 +1,1 @@
+-- Seed default categories for the demo user at startup if not already added.
